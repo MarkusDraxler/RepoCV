@@ -1,0 +1,3 @@
+/home/markus/Schreibtisch/CV/CMakeFiles/rebuild_cache.dir
+/home/markus/Schreibtisch/CV/CMakeFiles/DisplayImage.dir
+/home/markus/Schreibtisch/CV/CMakeFiles/edit_cache.dir
