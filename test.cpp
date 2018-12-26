@@ -16,6 +16,7 @@ int main(int argc, char** argv) {
 		//make the processing
 		Mat structuringElement = Mat::ones(6,6, CV_32F);
 //		morphologyEx(frame, frame, 6, structuringElement);
+//		frame = frame * 1.08;
 
 
 		if(frame.empty()) break;

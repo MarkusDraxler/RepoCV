@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/markus/Schreibtisch/CV/test.cpp
+/home/markus/Schreibtisch/CV/RepoCV/test.cpp
 stdio.h
 -
 opencv2/opencv.hpp
