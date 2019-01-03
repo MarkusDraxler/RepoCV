@@ -5,9 +5,13 @@ using namespace cv;
 
 int main(int argc, char** argv) {
 	VideoCapture cap;
+
 	if(!cap.open(0)) {
 		return 0;
-	}
+	}	
+	Mat frame;
+	cap >> frame;
+	Mat destination(frame.rows, frame.cols, CV_8UC3, Scalar(0,0,255));
 	for(;;) {
 		Mat frame;
 		cap >> frame;
@@ -17,10 +21,16 @@ int main(int argc, char** argv) {
 		Mat structuringElement = Mat::ones(6,6, CV_32F);
 //		morphologyEx(frame, frame, 6, structuringElement);
 //		frame = frame * 1.08;
+//		medianBlur(frame, frame, 21);		
+//		frame.convertTo(destination, CV_8UC3);
+
+		//printf("Type: %d \n", destination.type());
+		bilateralFilter(frame, destination, 15, 40, 40);
+//		GaussianBlur(frame, frame, Size(7,7), 0.3, 0.3, BORDER_DEFAULT);
 
 
 		if(frame.empty()) break;
-		imshow("this is you, smile! :)", frame);
+		imshow("this is you, smile! :)", destination);
 		if(waitKey(10) == 27) break;
 	}
 
@@ -31,7 +41,6 @@ int main(int argc, char** argv) {
 
 	Mat image;
 	image = imread( argv[1], 1);
-//	medianBlur(image, image, 7);
 
 	if( !image.data) {
 		printf("No image data \n");
